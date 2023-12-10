@@ -6,6 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - https://angular.dev/
 - [Tutorials on YouTube](https://www.youtube.com/playlist?list=PL1w1q3fL4pmj9k1FrJ3Pe91EPub2_h4jF)
+- [Router Tutorial](https://angular.io/guide/router-tutorial)
 
 ## Development server
 
