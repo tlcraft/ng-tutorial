@@ -11,8 +11,6 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'ng-tutorial';
-
   ngOnInit(): void {
     console.log("On Init");
   }
