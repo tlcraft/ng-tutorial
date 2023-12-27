@@ -4,3 +4,6 @@
         {{item}}
     </li>
 </ul>
+<label for="newItem">New Item</label>
+<input type="text" id="newItem" [formControl]="newItem" />
+<button (click)="addItem()">Add Item</button>
