@@ -15,5 +15,9 @@ export class TodoListComponent {
 
   addItem(): void {
     console.log("Add: ", this.newItem.value);
+    const newItem = this.newItem.value;
+    if (newItem) {
+      this.todoList.push(newItem);
+    }
   }
 }
