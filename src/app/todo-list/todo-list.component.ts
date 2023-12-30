@@ -10,11 +10,10 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
-  todoList: string[] = ["Item"];
+  todoList: string[] = [];
   newItem = new FormControl('');
 
   addItem(): void {
-    console.log("Add: ", this.newItem.value);
     const newItem = this.newItem.value;
     if (newItem) {
       this.todoList.push(newItem);
