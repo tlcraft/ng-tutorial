@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,13 +11,14 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
-  todoList: string[] = [];
+  todoList: { name: string, id: string}[] = [];
   newItem = new FormControl('');
 
   addItem(): void {
     const newItem = this.newItem.value;
+
     if (newItem) {
-      this.todoList.push(newItem);
+      this.todoList.push({ name: newItem, id:uuidv4()});
     }
   }
 }
