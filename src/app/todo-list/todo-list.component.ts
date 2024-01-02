@@ -21,4 +21,8 @@ export class TodoListComponent {
       this.todoList.push({ name: newItem, id:uuidv4()});
     }
   }
+
+  removeItem(id: string): void {
+    console.log("Remove: ", id);
+  }
 }
