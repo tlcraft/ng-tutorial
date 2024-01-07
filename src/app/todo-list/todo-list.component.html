@@ -1,7 +1,7 @@
 <p>Items to do.</p>
 <ul>
     <li *ngFor="let item of todoList">
-        {{item.name}} - <span class="remove" (click)="removeItem(item.id)">x</span>
+        {{item.name}} - <button (click)="removeItem(item.id)">Remove</button>
     </li>
 </ul>
 <label for="newItem">New Item</label>
