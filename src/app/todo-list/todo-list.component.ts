@@ -23,7 +23,6 @@ export class TodoListComponent {
   }
 
   removeItem(id: string): void {
-    console.log("Remove: ", id);
     this.todoList = this.todoList.filter(item => item.id !== id);
   }
 }
