@@ -4,6 +4,6 @@
 <button (click)="addItem()">Add Item</button>
 <ul>
     <li *ngFor="let item of todoList">
-        {{item.name}} - <button (click)="removeItem(item.id)">Remove</button>
+        <span>{{item.name}}</span><button class="remove" (click)="removeItem(item.id)">Remove</button>
     </li>
 </ul>
