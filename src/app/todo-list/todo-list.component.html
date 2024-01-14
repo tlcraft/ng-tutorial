@@ -3,7 +3,7 @@
 <input type="text" id="newItem" [formControl]="newItem" />
 <button (click)="addItem()">Add Item</button>
 <ul>
-    <li *ngFor="let item of todoList">
-        <span>{{item.name}}</span><button class="remove" (click)="removeItem(item.id)">Remove</button>
-    </li>
+    <ng-container *ngFor="let item of todoList">
+        <app-todo-item [item]="item" (removeEmitter)="removeItem(item.id)"></app-todo-item>
+    </ng-container>
 </ul>
