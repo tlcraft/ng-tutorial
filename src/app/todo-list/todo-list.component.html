@@ -1,6 +1,9 @@
 <p>Items to do.</p>
+<label for="newItem">New Item</label>
+<input type="text" id="newItem" [formControl]="newItem" />
+<button (click)="addItem()">Add Item</button>
 <ul>
-    <li *ngFor="let item of todoList">
-        {{item}}
-    </li>
+    <ng-container *ngFor="let item of todoList">
+        <app-todo-item [item]="item" (removeEmitter)="removeItem(item.id)"></app-todo-item>
+    </ng-container>
 </ul>
