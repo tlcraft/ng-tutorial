@@ -14,4 +14,8 @@ export class TodoItemComponent {
   removeItem(id: string): void {
     this.removeEmitter.emit();
   }
+
+  editItem(id: string): void {
+    console.log("Edit: ", id);
+  }
 }
