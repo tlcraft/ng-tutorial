@@ -12,14 +12,14 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
   styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
-  todoList: { name: string, id: string, inEditMode: boolean }[] = [];
+  todoList: { name: string, id: string }[] = [];
   newItem = new FormControl('');
 
   addItem(): void {
     const newItem = this.newItem.value;
 
     if (newItem) {
-      this.todoList.push({ name: newItem, id: uuidv4(), inEditMode: false });
+      this.todoList.push({ name: newItem, id: uuidv4() });
     }
   }
 

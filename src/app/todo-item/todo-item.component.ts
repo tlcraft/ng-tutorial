@@ -9,8 +9,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './todo-item.component.scss'
 })
 export class TodoItemComponent {
-  @Input() item: { name: string, id: string, inEditMode: boolean };
+  @Input() item: { name: string, id: string };
   @Output() removeEmitter: EventEmitter<any> = new EventEmitter();
+
+  inEditMode: boolean;
 
   removeItem(id: string): void {
     this.removeEmitter.emit();
@@ -18,11 +20,11 @@ export class TodoItemComponent {
 
   editItem(id: string): void {
     console.log("Edit: ", id);
-    this.item.inEditMode = true;
+    this.inEditMode = true;
   }
 
   saveItem(id: string): void {
     console.log("Save: ", id);
-    this.item.inEditMode = false;
+    this.inEditMode = false;
   }
 }

@@ -1,6 +1,6 @@
 <li>
     <span>{{item.name}}</span>
     <button class="remove" (click)="removeItem(item.id)">Remove</button>
-    <button *ngIf="!item.inEditMode" class="edit" (click)="editItem(item.id)">Edit</button>
-    <button *ngIf="item.inEditMode" class="save" (click)="saveItem(item.id)">Save</button>
+    <button *ngIf="!inEditMode" class="edit" (click)="editItem(item.id)">Edit</button>
+    <button *ngIf="inEditMode" class="save" (click)="saveItem(item.id)">Save</button>
 </li>
