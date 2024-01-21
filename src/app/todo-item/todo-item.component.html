@@ -2,5 +2,9 @@
     <span>{{item.name}}</span>
     <button class="remove" (click)="removeItem(item.id)">Remove</button>
     <button *ngIf="!inEditMode" class="edit" (click)="editItem(item.id)">Edit</button>
-    <button *ngIf="inEditMode" class="save" (click)="saveItem(item.id)">Save</button>
+    <ng-container *ngIf="inEditMode">
+        <label for="editItem">Edit Item</label>
+        <input type="text" id="editItem" [formControl]="editedItem" />
+        <button class="save" (click)="saveItem()">Save</button>
+    </ng-container>
 </li>

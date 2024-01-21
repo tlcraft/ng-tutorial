@@ -1,19 +1,25 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './todo-item.component.html',
   styleUrl: './todo-item.component.scss'
 })
-export class TodoItemComponent {
+export class TodoItemComponent implements OnInit {
   @Input() item: { name: string, id: string };
   @Output() removeEmitter: EventEmitter<any> = new EventEmitter();
 
   inEditMode: boolean;
+  editedItem = new FormControl();
 
+  ngOnInit() {
+    this.editedItem = new FormControl(this.item.name);
+  }
+  
   removeItem(id: string): void {
     this.removeEmitter.emit();
   }
@@ -23,8 +29,9 @@ export class TodoItemComponent {
     this.inEditMode = true;
   }
 
-  saveItem(id: string): void {
-    console.log("Save: ", id);
+  saveItem(): void {
+    console.log("Save: ", this.editedItem.value);
     this.inEditMode = false;
+    // emit to parent to update list
   }
 }
