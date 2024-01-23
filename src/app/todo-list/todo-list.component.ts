@@ -9,7 +9,6 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TodoItemComponent],
   templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
   todoList: { name: string, id: string }[] = [];
