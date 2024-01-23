@@ -1,7 +1,9 @@
 <li>
-    <span>{{item.name}}</span>
-    <button class="remove" (click)="removeItem(item.id)">Remove</button>
-    <button *ngIf="!inEditMode" class="edit" (click)="editItem(item.id)">Edit</button>
+    <ng-container *ngIf="!inEditMode">
+        <span>{{item.name}}</span>
+        <button class="remove" (click)="removeItem(item.id)">Remove</button>
+        <button class="edit" (click)="editItem(item.id)">Edit</button>
+    </ng-container>
     <ng-container *ngIf="inEditMode">
         <label for="editItem">Edit Item</label>
         <input type="text" id="editItem" [formControl]="editedItem" />
