@@ -11,6 +11,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class TodoItemComponent implements OnInit {
   @Input() item: { name: string, id: string };
+  @Output() editEmitter: EventEmitter<any> = new EventEmitter();
   @Output() removeEmitter: EventEmitter<any> = new EventEmitter();
 
   inEditMode: boolean;
@@ -32,6 +33,6 @@ export class TodoItemComponent implements OnInit {
   saveItem(): void {
     console.log("Save: ", this.editedItem.value);
     this.inEditMode = false;
-    // emit to parent to update list
+    this.editEmitter.emit({ name: this.editedItem.value, id: this.item.id });
   }
 }
