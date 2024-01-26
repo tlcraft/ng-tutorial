@@ -4,6 +4,10 @@
 <button (click)="addItem()">Add Item</button>
 <ul>
     <ng-container *ngFor="let item of todoList">
-        <app-todo-item [item]="item" (removeEmitter)="removeItem(item.id)"></app-todo-item>
+        <app-todo-item 
+            [item]="item" 
+            (editEmitter)="editItem($event)"
+            (removeEmitter)="removeItem(item.id)">
+        </app-todo-item>
     </ng-container>
 </ul>

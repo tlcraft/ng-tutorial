@@ -22,6 +22,10 @@ export class TodoListComponent {
     }
   }
 
+  editItem(editedItem: { name: string, id: string }): void {
+    console.log("**Edited Item: ", editedItem);
+  }
+
   removeItem(id: string): void {
     this.todoList = this.todoList.filter(item => item.id !== id);
   }
