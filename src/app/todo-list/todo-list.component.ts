@@ -23,7 +23,15 @@ export class TodoListComponent {
   }
 
   editItem(editedItem: { name: string, id: string }): void {
-    console.log("**Edited Item: ", editedItem);
+    const updatedList = this.todoList.map(item => {
+      if (item.id === editedItem.id) {
+        return editedItem;
+      }
+
+      return item;
+    });
+    
+    this.todoList = updatedList;
   }
 
   removeItem(id: string): void {
