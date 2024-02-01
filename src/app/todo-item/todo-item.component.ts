@@ -26,12 +26,10 @@ export class TodoItemComponent implements OnInit {
   }
 
   editItem(id: string): void {
-    console.log("Edit: ", id);
     this.inEditMode = true;
   }
 
   saveItem(): void {
-    console.log("Save: ", this.editedItem.value);
     this.inEditMode = false;
     this.editEmitter.emit({ name: this.editedItem.value, id: this.item.id });
   }
