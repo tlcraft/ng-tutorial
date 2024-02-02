@@ -1,12 +1,12 @@
 li {
     display: flex;
     align-items: center;
-    width: 500px;
     overflow-wrap: anywhere;
 }
 
 span {
     flex: 1;
+    max-width: 418px;
 }
 
 .remove {
@@ -15,5 +15,11 @@ span {
 }
 
 input {
-    width: 233px;
+    flex: 1;
+    max-width: 400px;
+}
+
+button.save, button.edit {
+    flex: 1;
+    max-width: 150px;
 }
