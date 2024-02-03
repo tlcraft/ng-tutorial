@@ -9,7 +9,6 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TodoItemComponent],
   templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.scss'
 })
 export class TodoListComponent {
   todoList: { name: string, id: string }[] = [];
@@ -21,6 +20,10 @@ export class TodoListComponent {
     if (newItem) {
       this.todoList.push({ name: newItem, id: uuidv4() });
     }
+  }
+
+  editItem(editedItem: { name: string, id: string }): void {
+    this.todoList = this.todoList.map(item => item.id === editedItem.id ? editedItem : item);
   }
 
   removeItem(id: string): void {

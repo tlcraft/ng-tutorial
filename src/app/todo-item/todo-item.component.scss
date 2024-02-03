@@ -1,15 +1,20 @@
 li {
     display: flex;
     align-items: center;
-    width: 500px;
     overflow-wrap: anywhere;
 }
 
 span {
     flex: 1;
+    max-width: 418px;
 }
 
-.remove {
+input {
+    flex: 1;
+    max-width: 400px;
+}
+
+.save, .edit, .remove {
     flex: 1;
     max-width: 150px;
 }

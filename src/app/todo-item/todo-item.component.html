@@ -1,4 +1,12 @@
 <li>
-    <span>{{item.name}}</span>
-    <button class="remove" (click)="removeItem(item.id)">Remove</button>    
+    <ng-container *ngIf="!inEditMode">
+        <span>{{item.name}}</span>
+        <button class="remove" (click)="removeItem(item.id)">Remove</button>
+        <button class="edit" (click)="editItem(item.id)">Edit</button>
+    </ng-container>
+    <ng-container *ngIf="inEditMode">
+        <input type="text" id="editItem" [formControl]="editedItem" />
+        <button class="remove" (click)="removeItem(item.id)">Remove</button>
+        <button class="save" (click)="saveItem()">Save</button>
+    </ng-container>
 </li>
