@@ -19,5 +19,7 @@ describe('TodoListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.newItem.value).toBe('');
+    expect(component.todoList).toEqual([]);
   });
 });
