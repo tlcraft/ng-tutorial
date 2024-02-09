@@ -28,4 +28,10 @@ describe('TodoItemComponent', () => {
     expect(component.item.name).toBe('item');
     expect(component.inEditMode).toBeUndefined();
   });
+
+  it('should emit removed', () => {
+    spyOn(component.removeEmitter, 'emit');
+    component.removeItem();
+    expect(component.removeEmitter.emit).toHaveBeenCalled();
+  });
 });
