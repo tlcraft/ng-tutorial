@@ -34,4 +34,10 @@ describe('TodoItemComponent', () => {
     component.removeItem();
     expect(component.removeEmitter.emit).toHaveBeenCalled();
   });
+
+  it('should enable edit', () => {
+    expect(component.inEditMode).toBeUndefined();
+    component.editItem();
+    expect(component.inEditMode).toBeTrue();
+  });
 });
