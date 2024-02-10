@@ -2,7 +2,7 @@
     <ng-container *ngIf="!inEditMode">
         <span>{{item.name}}</span>
         <button class="remove" (click)="removeItem()">Remove</button>
-        <button class="edit" (click)="editItem(item.id)">Edit</button>
+        <button class="edit" (click)="editItem()">Edit</button>
     </ng-container>
     <ng-container *ngIf="inEditMode">
         <input type="text" id="editItem" [formControl]="editedItem" />

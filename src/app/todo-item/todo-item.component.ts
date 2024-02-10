@@ -25,7 +25,7 @@ export class TodoItemComponent implements OnInit {
     this.removeEmitter.emit();
   }
 
-  editItem(id: string): void {
+  editItem(): void {
     this.inEditMode = true;
   }
 
