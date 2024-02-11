@@ -40,4 +40,20 @@ describe('TodoItemComponent', () => {
     component.editItem();
     expect(component.inEditMode).toBeTrue();
   });
+
+  it('should save the item', () => {
+    spyOn(component.editEmitter, 'emit');
+    expect(component.inEditMode).toBeUndefined();
+    expect(component.editedItem.value).toBe('item');
+    
+    component.editItem();
+    expect(component.inEditMode).toBeTrue();
+
+    component.editedItem.setValue('edited item');
+    component.saveItem();
+
+    expect(component.editedItem.value).toBe('edited item');
+    expect(component.inEditMode).toBeFalse();
+    expect(component.editEmitter.emit).toHaveBeenCalled();
+  });
 });
