@@ -21,11 +21,11 @@ export class TodoItemComponent implements OnInit {
     this.editedItem = new FormControl(this.item.name);
   }
   
-  removeItem(id: string): void {
+  removeItem(): void {
     this.removeEmitter.emit();
   }
 
-  editItem(id: string): void {
+  editItem(): void {
     this.inEditMode = true;
   }
 
