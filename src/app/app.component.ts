@@ -9,7 +9,6 @@ import { NavComponent } from './nav/nav.component';
   standalone: true,
   imports: [CommonModule, RouterModule, RouterOutlet, TodoListComponent, NavComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
