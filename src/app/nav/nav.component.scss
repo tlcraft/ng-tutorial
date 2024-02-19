@@ -1,9 +1,16 @@
 nav {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: lightgray;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
+}
+
+@media (width <= 235px) {
+    nav {
+        flex-direction: column;
+    }
 }
