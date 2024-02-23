@@ -22,14 +22,10 @@ describe('HomeComponent', () => {
   });
 
   it(`should have the 'ng-tutorial' title`, () => {
-    const fixture = TestBed.createComponent(HomeComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-tutorial');
+    expect(component.title).toEqual('ng-tutorial');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(HomeComponent);
-    fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ng-tutorial');
   });
