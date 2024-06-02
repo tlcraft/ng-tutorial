@@ -13,6 +13,6 @@ export class RxjsExamplesComponent implements OnInit {
   takeFourNumbers = this.numbers.pipe(take(4));
 
   ngOnInit() {
-     this.takeFourNumbers.subscribe(x => console.log('Next: ', x));
+     this.takeFourNumbers.subscribe(number => console.log('Next: ', number));
   }
 }
