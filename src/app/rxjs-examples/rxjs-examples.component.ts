@@ -1,18 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { interval, take } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './rxjs-examples.component.html',
   styleUrl: './rxjs-examples.component.scss'
 })
-export class RxjsExamplesComponent implements OnInit {
-  numbers = interval(1000);
-  takeFourNumbers = this.numbers.pipe(take(4));
+export class RxjsExamplesComponent {
+  numbersInterval = interval(1000);
+  takeFourNumbers$ = this.numbersInterval.pipe(take(4));
+  showInterval = false;
+  numberList: number[] = [];
 
-  ngOnInit() {
-     this.takeFourNumbers.subscribe(number => console.log('Next: ', number));
+  expandInterval() {
+    this.showInterval = !this.showInterval;
+    if (this.showInterval) {
+      this.takeFourNumbers$.subscribe(number => this.numberList.push(number));
+    } else {
+      this.numberList = [];
+    }
   }
 }
