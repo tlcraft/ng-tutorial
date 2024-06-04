@@ -1,1 +1,9 @@
-<p>rxjs-examples works!</p>
+<p>Here are some RxJS examples. Click a button to expand the details.</p>
+
+<button (click)="expandInterval()">See Interval Example</button>
+<div *ngIf="showInterval">
+    <p>For more information see <a href="https://rxjs.dev/api/index/function/interval" target="_blank">Interval</a>.</p>
+    <ul>
+        <li *ngFor="let number of numberList">{{number}}</li>
+    </ul>
+</div>
