@@ -11,14 +11,14 @@ import { interval, take } from 'rxjs';
 })
 export class RxjsExamplesComponent {
   numbersInterval = interval(1000);
-  takeFourNumbers$ = this.numbersInterval.pipe(take(4));
+  takeNumbers$ = this.numbersInterval.pipe(take(10));
   showInterval = false;
   numberList: number[] = [];
 
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
-      this.takeFourNumbers$.subscribe(number => this.numberList.push(number));
+      this.takeNumbers$.subscribe(number => this.numberList.push(number));
     } else {
       this.numberList = [];
     }
