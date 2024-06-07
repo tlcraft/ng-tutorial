@@ -14,6 +14,8 @@ export class RxjsExamplesComponent {
   takeNumbers$ = this.numbersInterval.pipe(take(10));
   showInterval = false;
   numberList: number[] = [];
+  
+  showTimeout = false;
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -22,5 +24,9 @@ export class RxjsExamplesComponent {
     } else {
       this.numberList = [];
     }
+  }
+
+  expandTimeout() {
+    this.showTimeout = !this.showTimeout;
   }
 }

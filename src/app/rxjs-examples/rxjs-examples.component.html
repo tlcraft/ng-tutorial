@@ -7,3 +7,7 @@
         <li *ngFor="let number of numberList">{{number}}</li>
     </ul>
 </div>
+<button (click)="expandTimeout()">See Timeout Example</button>
+<div *ngIf="showTimeout">
+    <p>The timeout operator will error when an event is not emiited on schedule. For more information see the <a href="https://rxjs.dev/api/operators/timeout" target="_blank">Timeout documentation</a>.</p>
+</div>
