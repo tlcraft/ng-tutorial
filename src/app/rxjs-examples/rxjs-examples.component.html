@@ -1,8 +1,8 @@
-<p>Here are some RxJS examples. Click a button to expand the details.</p>
+<p>Here are some RxJS examples. Click a button to expand the details and learn more.</p>
 
 <button (click)="expandInterval()">See Interval Example</button>
 <div *ngIf="showInterval">
-    <p>For more information see <a href="https://rxjs.dev/api/index/function/interval" target="_blank">Interval</a>.</p>
+    <p>The interval emits a sequential number on the specified interval. This example emits 10 numbers, one each second. For more information see the <a href="https://rxjs.dev/api/index/function/interval" target="_blank">Interval documentation</a>.</p>
     <ul>
         <li *ngFor="let number of numberList">{{number}}</li>
     </ul>
