@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { interval, take } from 'rxjs';
+import { interval, take, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -16,6 +16,7 @@ export class RxjsExamplesComponent {
   numberList: number[] = [];
   
   showTimeout = false;
+  timeoutError: Error;
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -28,5 +29,17 @@ export class RxjsExamplesComponent {
 
   expandTimeout() {
     this.showTimeout = !this.showTimeout;
+    if (this.showTimeout) {
+      const slow$ = interval(500);
+      slow$.pipe(
+        timeout({
+          each: 400,
+          with: () => throwError(() => new Error('Timeout error'))
+        })
+      )
+      .subscribe({
+        error: (error) => this.timeoutError = error
+      });
+    }
   }
 }
