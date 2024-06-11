@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { interval, take, throwError, timeout } from 'rxjs';
+import { combineLatestWith, interval, map, take, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -17,6 +17,9 @@ export class RxjsExamplesComponent {
   
   showTimeout = false;
   timeoutError: Error;
+
+  showCombineLatest = false;
+  combineLatestValue: number;
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -40,6 +43,19 @@ export class RxjsExamplesComponent {
       .subscribe({
         error: (error) => this.timeoutError = error
       });
+    }
+  }
+
+  expandCombineLatest() {
+    this.showCombineLatest = !this.showCombineLatest;
+    if (this.showCombineLatest) {
+      const slow$ = interval(800);
+      const fast$ = interval(200);
+      slow$.pipe(
+        combineLatestWith(fast$),
+        map(([x, y]) => (this.combineLatestValue = x + y))
+      )
+      .subscribe();
     }
   }
 }
