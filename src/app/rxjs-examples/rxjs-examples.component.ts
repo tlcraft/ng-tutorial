@@ -18,8 +18,8 @@ export class RxjsExamplesComponent {
   showTimeout = false;
   timeoutError: Error;
 
-  showCombineLatest = false;
-  combineLatestValue: number;
+  showCombineLatestWith = false;
+  combineLatestWithValue: number;
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -46,14 +46,14 @@ export class RxjsExamplesComponent {
     }
   }
 
-  expandCombineLatest() {
-    this.showCombineLatest = !this.showCombineLatest;
-    if (this.showCombineLatest) {
+  expandCombineLatestWith() {
+    this.showCombineLatestWith = !this.showCombineLatestWith;
+    if (this.showCombineLatestWith) {
       const slow$ = interval(800);
       const fast$ = interval(200);
       slow$.pipe(
         combineLatestWith(fast$),
-        map(([x, y]) => (this.combineLatestValue = x + y))
+        map(([x, y]) => (this.combineLatestWithValue = x + y))
       )
       .subscribe();
     }
