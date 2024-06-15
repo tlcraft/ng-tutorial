@@ -11,7 +11,7 @@
 <div *ngIf="showTimeout">
     <p>The timeout operator will error when an event is not emiited on schedule. For more information see the <a href="https://rxjs.dev/api/operators/timeout" target="_blank">Timeout documentation</a>.</p>
     <p>
-        {{timeoutError}}
+        {{timeoutError.message ? timeoutError : '' }}
     </p>
 </div>
 <button (click)="expandCombineLatestWith()">See Combine Latest With Example</button>
@@ -19,6 +19,6 @@
     <p>The combine latest with operator will combine the latest values from all passed observables and emit them. For more information see the <a href="https://rxjs.dev/api/operators/combineLatestWith" target="_blank">Combine Latest With documentation</a>.</p>
     <p>This example just adds numbers together every few milliseconds: </p>
     <p>
-        {{combineLatestWithValue}}
+        {{combineLatestWithValue ? combineLatestWithValue : '' }}
     </p>
 </div>
