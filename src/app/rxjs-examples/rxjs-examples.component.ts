@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { combineLatestWith, interval, map, take, throwError, timeout } from 'rxjs';
+import { Subject, combineLatestWith, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -10,6 +10,7 @@ import { combineLatestWith, interval, map, take, throwError, timeout } from 'rxj
   styleUrl: './rxjs-examples.component.scss'
 })
 export class RxjsExamplesComponent {
+  stop$ = new Subject<void>();
   numbersInterval = interval(1000);
   takeNumbers$ = this.numbersInterval.pipe(take(10));
   showInterval = false;
@@ -24,8 +25,9 @@ export class RxjsExamplesComponent {
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
-      this.takeNumbers$.subscribe(number => this.numberList.push(number));
+      this.takeNumbers$.pipe(takeUntil(this.stop$)).subscribe(number => this.numberList.push(number));
     } else {
+      this.stop$.next();
       this.numberList = [];
     }
   }
@@ -38,11 +40,15 @@ export class RxjsExamplesComponent {
         timeout({
           each: 400,
           with: () => throwError(() => new Error('Timeout error'))
-        })
+        }),
+        takeUntil(this.stop$)
       )
       .subscribe({
         error: (error) => this.timeoutError = error
       });
+    } else {
+      this.timeoutError = Error();
+      this.stop$.next();
     }
   }
 
@@ -53,9 +59,13 @@ export class RxjsExamplesComponent {
       const fast$ = interval(200);
       slow$.pipe(
         combineLatestWith(fast$),
-        map(([x, y]) => (this.combineLatestWithValue = x + y))
+        map(([x, y]) => (this.combineLatestWithValue = x + y)),
+        takeUntil(this.stop$)
       )
       .subscribe();
+    } else {
+      this.combineLatestWithValue = 0;
+      this.stop$.next();
     }
   }
 }
