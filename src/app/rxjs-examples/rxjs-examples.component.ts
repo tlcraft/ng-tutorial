@@ -57,9 +57,15 @@ export class RxjsExamplesComponent {
     if (this.showCombineLatestWith) {
       const slow$ = interval(800);
       const fast$ = interval(200);
+
       slow$.pipe(
         combineLatestWith(fast$),
-        map(([x, y]) => (this.combineLatestWithValue = x + y)),
+        map(([x, y]) => {
+          this.combineLatestWithValue = x + y;
+          if (this.combineLatestWithValue > 25) {
+            this.stop$.next();
+          }
+        }),
         takeUntil(this.stop$)
       )
       .subscribe();
