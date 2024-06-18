@@ -22,6 +22,8 @@ export class RxjsExamplesComponent {
   showCombineLatestWith = false;
   combineLatestWithValue: number;
 
+  showConcatMap = false;
+
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
@@ -72,6 +74,13 @@ export class RxjsExamplesComponent {
     } else {
       this.combineLatestWithValue = 0;
       this.stop$.next();
+    }
+  }
+  
+  expandConcatMap() {
+    this.showConcatMap = !this.showConcatMap;
+    if(this.showConcatMap) {
+      console.log("Concat Map Example");
     }
   }
 }
