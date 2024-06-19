@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Subject, combineLatestWith, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
+import { Subject, combineLatestWith, concatMap, fromEvent, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -79,8 +79,12 @@ export class RxjsExamplesComponent {
   
   expandConcatMap() {
     this.showConcatMap = !this.showConcatMap;
-    if(this.showConcatMap) {
-      console.log("Concat Map Example");
+    if (this.showConcatMap) {
+      const clicks = fromEvent(document, 'click');
+      const result = clicks.pipe(
+        concatMap(ev => interval(1000).pipe(take(4)))
+      );
+      result.subscribe(x => console.log(x));
     }
   }
 }
