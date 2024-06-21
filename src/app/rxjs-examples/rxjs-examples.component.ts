@@ -23,6 +23,7 @@ export class RxjsExamplesComponent {
   combineLatestWithValue: number;
 
   showConcatMap = false;
+  concatNumbers: number[] = [];
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -85,10 +86,11 @@ export class RxjsExamplesComponent {
         concatMap(() => interval(1000).pipe(take(4))),
         takeUntil(this.stop$)
       );
-      result.subscribe(x => console.log(x));
+      result.subscribe(x => this.concatNumbers.push(x));
     }
     else {
       this.stop$.next();
+      this.concatNumbers = [];
     }
   }
 }
