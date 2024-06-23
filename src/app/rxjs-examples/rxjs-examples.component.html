@@ -25,6 +25,7 @@
 <button (click)="expandConcatMap()">See Concat Map Example</button>
 <div *ngIf="showConcatMap">
     <p>The concat map operator will merge source observables to an output, waiting for each one to complete before merging the next value. For more information see the <a href="https://rxjs.dev/api/operators/concatMap" target="_blank">Concat Map documentation</a>.</p>
+    <p>You can click the page to print another set of numbers.</p>
     <ul>
         <li *ngFor="let number of concatNumbers">{{number}}</li>
     </ul>
