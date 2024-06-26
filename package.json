@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "npx eslint",
+    "lint-log": "npx eslint > lint-log.txt",
+    "lint-fix": "npx eslint --fix"
   },
   "private": true,
   "dependencies": {
