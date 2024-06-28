@@ -11,8 +11,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class TodoItemComponent implements OnInit {
   @Input() item: { name: string, id: string };
-  @Output() editEmitter: EventEmitter<any> = new EventEmitter();
-  @Output() removeEmitter: EventEmitter<any> = new EventEmitter();
+  @Output() editEmitter: EventEmitter<{ name: string, id: string }> = new EventEmitter();
+  @Output() removeEmitter: EventEmitter<{ name: string, id: string }> = new EventEmitter();
 
   inEditMode: boolean;
   editedItem = new FormControl();
