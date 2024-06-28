@@ -4,10 +4,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Resources
 
+### Angular 
 - https://angular.dev/
 - [Tutorials on YouTube](https://www.youtube.com/playlist?list=PL1w1q3fL4pmj9k1FrJ3Pe91EPub2_h4jF)
 - [Router Tutorial](https://angular.dev/guide/routing/router-tutorial)
 - [rxjs](https://rxjs.dev/)
+
+### ESLint
+
+- [ESLint Getting Started](https://eslint.org/docs/latest/use/getting-started)
+- [ESLint Configuration](https://eslint.org/docs/latest/use/configure/)
+- [ESLint Configuration Files](https://eslint.org/docs/latest/use/configure/configuration-files)
+- [ESLint Ignore](https://eslint.org/docs/latest/use/configure/migration-guide#ignoring-files)
+
+### TypeScript
+- [TypeScript Configuration](https://eslint.org/docs/latest/use/configure/)
+- [TypeScript tsconfig](https://www.typescriptlang.org/tsconfig/)
 
 ## Development server
 
