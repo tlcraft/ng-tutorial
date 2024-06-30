@@ -18,7 +18,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [ESLint Ignore](https://eslint.org/docs/latest/use/configure/migration-guide#ignoring-files)
 
 ### TypeScript
-- [TypeScript Configuration](https://eslint.org/docs/latest/use/configure/)
+- [What is a tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 - [TypeScript tsconfig](https://www.typescriptlang.org/tsconfig/)
 
 ## Development server
