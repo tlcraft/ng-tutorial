@@ -16,10 +16,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [ESLint Configuration](https://eslint.org/docs/latest/use/configure/)
 - [ESLint Configuration Files](https://eslint.org/docs/latest/use/configure/configuration-files)
 - [ESLint Ignore](https://eslint.org/docs/latest/use/configure/migration-guide#ignoring-files)
+- [ESLint Ignore Files](https://eslint.org/docs/latest/use/configure/ignore)
 
 ### TypeScript
 - [What is a tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 - [TypeScript tsconfig](https://www.typescriptlang.org/tsconfig/)
+- [TypeScript modules](https://www.typescriptlang.org/docs/handbook/2/modules.html)
+- [Eslint/Tslint Config help (excluding files)](https://stackoverflow.com/a/61219638)
+- [Node Modules at War: Why CommonJS and ES Modules Can’t Get Along](https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1)
 
 ## Development server
 
