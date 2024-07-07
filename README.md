@@ -4,10 +4,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Resources
 
+### Angular 
 - https://angular.dev/
 - [Tutorials on YouTube](https://www.youtube.com/playlist?list=PL1w1q3fL4pmj9k1FrJ3Pe91EPub2_h4jF)
 - [Router Tutorial](https://angular.dev/guide/routing/router-tutorial)
 - [rxjs](https://rxjs.dev/)
+
+### ESLint
+
+- [ESLint Getting Started](https://eslint.org/docs/latest/use/getting-started)
+- [ESLint Configuration](https://eslint.org/docs/latest/use/configure/)
+- [ESLint Configuration Files](https://eslint.org/docs/latest/use/configure/configuration-files)
+- [ESLint Ignore](https://eslint.org/docs/latest/use/configure/migration-guide#ignoring-files)
+- [ESLint Ignore Files](https://eslint.org/docs/latest/use/configure/ignore)
+
+### TypeScript
+- [What is a tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+- [TypeScript tsconfig](https://www.typescriptlang.org/tsconfig/)
+- [TypeScript modules](https://www.typescriptlang.org/docs/handbook/2/modules.html)
+- [Eslint/Tslint Config help (excluding files)](https://stackoverflow.com/a/61219638)
+- [Node Modules at War: Why CommonJS and ES Modules Can’t Get Along](https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1)
 
 ## Development server
 
