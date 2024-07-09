@@ -30,3 +30,7 @@
         <li *ngFor="let number of concatNumbers">{{number}}</li>
     </ul>
 </div>
+<button (click)="expandGenerate()">See Generate Example</button>
+<div *ngIf="showGenerate">
+    <p>The generate operator will create an observable using a state-driven loop and a scheduler to send the messages. For more information see the <a href="https://rxjs.dev/api/index/function/generate" target="_blank">Generate documentation</a>.</p>
+</div>

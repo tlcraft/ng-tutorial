@@ -25,6 +25,8 @@ export class RxjsExamplesComponent {
   showConcatMap = false;
   concatNumbers: number[] = [];
 
+  showGenerate = false;
+
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
@@ -93,5 +95,9 @@ export class RxjsExamplesComponent {
       this.stop$.next();
       this.concatNumbers = [];
     }
+  }
+
+  expandGenerate() {
+    this.showGenerate = !this.showGenerate;
   }
 }
