@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Subject, combineLatestWith, concatMap, fromEvent, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
+import { Subject, combineLatestWith, concatMap, fromEvent, generate, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -26,6 +26,7 @@ export class RxjsExamplesComponent {
   concatNumbers: number[] = [];
 
   showGenerate = false;
+  generatedNumbers: number[] = [];
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -99,5 +100,12 @@ export class RxjsExamplesComponent {
 
   expandGenerate() {
     this.showGenerate = !this.showGenerate;
+
+    if (this.showGenerate) {
+      const result = generate(0, x => x < 5, x => x + 1, x => x);
+      result.subscribe(x => this.generatedNumbers.push(x));
+    } else {
+      this.generatedNumbers = [];
+    }
   }
 }
