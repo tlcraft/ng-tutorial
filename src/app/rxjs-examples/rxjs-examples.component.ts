@@ -28,6 +28,8 @@ export class RxjsExamplesComponent {
   showGenerate = false;
   generatedNumbers: number[] = [];
 
+  showDebounce = false;
+
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
@@ -107,5 +109,9 @@ export class RxjsExamplesComponent {
     } else {
       this.generatedNumbers = [];
     }
+  }
+
+  expandDebounce() {
+    this.showDebounce = !this.showDebounce;
   }
 }
