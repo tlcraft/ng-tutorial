@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Subject, combineLatestWith, concatMap, fromEvent, generate, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
+import { Subject, combineLatestWith, concatMap, debounceTime, fromEvent, generate, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -113,5 +113,13 @@ export class RxjsExamplesComponent {
 
   expandDebounce() {
     this.showDebounce = !this.showDebounce;
+    if (this.showDebounce) {
+      const clicks = fromEvent(document, 'click');
+      const result = clicks.pipe(
+        debounceTime(1000),
+        takeUntil(this.stop$)
+      );
+      result.subscribe(() => console.log("Debounce"));
+    }
   }
 }
