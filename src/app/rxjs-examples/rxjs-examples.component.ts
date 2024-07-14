@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Subject, combineLatestWith, concatMap, debounceTime, fromEvent, generate, interval, map, take, takeUntil, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './rxjs-examples.component.html',
   styleUrl: './rxjs-examples.component.scss'
 })
@@ -29,6 +30,8 @@ export class RxjsExamplesComponent {
   generatedNumbers: number[] = [];
 
   showDebounce = false;
+  debounceControl = new FormControl();
+  debounceValue: string;
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -114,12 +117,12 @@ export class RxjsExamplesComponent {
   expandDebounce() {
     this.showDebounce = !this.showDebounce;
     if (this.showDebounce) {
-      const clicks = fromEvent(document, 'click');
-      const result = clicks.pipe(
-        debounceTime(1000),
+      const result = this.debounceControl.valueChanges.pipe(
+        debounceTime(500),
         takeUntil(this.stop$)
       );
-      result.subscribe(() => console.log("Debounce"));
+
+      result.subscribe(value => this.debounceValue = value);
     }
   }
 }
