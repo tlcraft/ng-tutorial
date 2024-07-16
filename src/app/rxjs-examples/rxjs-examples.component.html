@@ -40,4 +40,6 @@
 <button (click)="expandDebounce()">See Debounce Time Example</button>
 <div *ngIf="showDebounce">
     <p>The debounceTime operation will emit a notification after a timeframe has passed with no other events. For more information see the <a href="https://rxjs.dev/api/index/function/debounceTime" target="_blank">DebounceTime documentation</a>.</p>
+    <input type="text" [formControl]="debounceControl" />
+    <p>{{debounceValue}}</p>
 </div>
