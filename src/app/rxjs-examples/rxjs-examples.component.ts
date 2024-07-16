@@ -123,6 +123,8 @@ export class RxjsExamplesComponent {
       );
 
       result.subscribe(value => this.debounceValue = value);
+    } else {
+      this.debounceValue = '';
     }
   }
 }
