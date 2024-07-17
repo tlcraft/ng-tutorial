@@ -43,3 +43,7 @@
     <input type="text" [formControl]="debounceControl" />
     <p>{{debounceValue}}</p>
 </div>
+<button (click)="expandTap()">See Tap Example</button>
+<div *ngIf="showTap">
+    <p>The tap operator is designed to be used with side-effects. For more information see the <a href="https://rxjs.dev/api/index/function/tap" target="_blank">Tap documentation</a>.</p>
+</div>

@@ -33,6 +33,8 @@ export class RxjsExamplesComponent {
   debounceControl = new FormControl();
   debounceValue: string;
 
+  showTap = false;
+
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
@@ -126,5 +128,9 @@ export class RxjsExamplesComponent {
     } else {
       this.debounceValue = '';
     }
+  }
+
+  expandTap() {
+    this.showTap = !this.showTap;
   }
 }
