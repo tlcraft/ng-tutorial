@@ -138,7 +138,7 @@ export class RxjsExamplesComponent {
     if (this.showTap) {
       const source = of(1, 2, 3, 4, 5);
       source.pipe(
-        tap(n => { this.tappedValues.push(n * 2) }),
+        tap(n => this.tappedValues.push(n * 2)),
       ).subscribe(n => this.sourceValues.push(n));
     }
   }
