@@ -46,4 +46,16 @@
 <button (click)="expandTap()">See Tap Example</button>
 <div *ngIf="showTap">
     <p>The tap operator is designed to be used with side-effects. For more information see the <a href="https://rxjs.dev/api/index/function/tap" target="_blank">Tap documentation</a>.</p>
+    <figure>
+        <figcaption>Tapped Values</figcaption>
+        <ul>
+            <li *ngFor="let number of tappedValues">{{number}}</li>
+        </ul>
+    </figure>
+    <figure>
+        <figcaption>Source Values</figcaption>
+        <ul>
+            <li *ngFor="let number of sourceValues">{{number}}</li>
+        </ul>
+    </figure>
 </div>
