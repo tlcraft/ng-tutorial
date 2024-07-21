@@ -139,7 +139,12 @@ export class RxjsExamplesComponent {
       const source = of(1, 2, 3, 4, 5);
       source.pipe(
         tap(n => this.tappedValues.push(n * 2)),
+        takeUntil(this.stop$)
       ).subscribe(n => this.sourceValues.push(n));
+    } else {
+      this.stop$.next();
+      this.tappedValues = [];
+      this.sourceValues = [];
     }
   }
 }
