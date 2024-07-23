@@ -12,8 +12,7 @@ import { Subject, combineLatestWith, concatMap, debounceTime, fromEvent, generat
 })
 export class RxjsExamplesComponent {
   stop$ = new Subject<void>();
-  numbersInterval = interval(1000);
-  takeNumbers$ = this.numbersInterval.pipe(take(10));
+
   showInterval = false;
   numberList: number[] = [];
   
@@ -40,7 +39,9 @@ export class RxjsExamplesComponent {
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
-      this.takeNumbers$.pipe(takeUntil(this.stop$)).subscribe(number => this.numberList.push(number));
+      const numbersInterval = interval(1000);
+      const takeNumbers$ = numbersInterval.pipe(take(5));
+      takeNumbers$.pipe(takeUntil(this.stop$)).subscribe(number => this.numberList.push(number));
     } else {
       this.stop$.next();
       this.numberList = [];
@@ -137,7 +138,7 @@ export class RxjsExamplesComponent {
     this.showTap = !this.showTap;
 
     if (this.showTap) {
-      const source = interval(1000).pipe(take(10));
+      const source = interval(1000).pipe(take(5));
       source.pipe(
         tap(n => this.tappedValues.push(n * 2)),
         takeUntil(this.stop$)
