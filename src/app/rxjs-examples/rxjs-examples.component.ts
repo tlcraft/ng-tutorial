@@ -128,6 +128,7 @@ export class RxjsExamplesComponent {
 
       result.subscribe(value => this.debounceValue = value);
     } else {
+      this.stop$.next();
       this.debounceValue = '';
     }
   }
@@ -136,7 +137,7 @@ export class RxjsExamplesComponent {
     this.showTap = !this.showTap;
 
     if (this.showTap) {
-      const source = of(1, 2, 3, 4, 5);
+      const source = interval(1000).pipe(take(10));
       source.pipe(
         tap(n => this.tappedValues.push(n * 2)),
         takeUntil(this.stop$)
