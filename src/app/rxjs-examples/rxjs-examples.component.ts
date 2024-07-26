@@ -36,6 +36,9 @@ export class RxjsExamplesComponent {
   tappedValues: number[] = [];
   sourceValues: number[] = [];
 
+  showMapFilter = false;
+  mappedValues = [];
+
   expandInterval() {
     this.showInterval = !this.showInterval;
     if (this.showInterval) {
@@ -148,5 +151,10 @@ export class RxjsExamplesComponent {
       this.tappedValues = [];
       this.sourceValues = [];
     }
+  }
+
+  expandMappedFilter() {
+    this.showMapFilter = !this.showMapFilter;
+
   }
 }
