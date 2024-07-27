@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Subject, combineLatestWith, concatMap, debounceTime, fromEvent, generate, interval, map, of, take, takeUntil, tap, throwError, timeout } from 'rxjs';
+import { Subject, combineLatestWith, concatMap, debounceTime, filter, fromEvent, generate, interval, map, of, take, takeUntil, tap, throwError, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -37,7 +37,7 @@ export class RxjsExamplesComponent {
   sourceValues: number[] = [];
 
   showMapFilter = false;
-  mappedValues = [];
+  mappedValues: number[] = [];
 
   expandInterval() {
     this.showInterval = !this.showInterval;
@@ -156,5 +156,17 @@ export class RxjsExamplesComponent {
   expandMappedFilter() {
     this.showMapFilter = !this.showMapFilter;
 
+    if (this.showMapFilter) {
+      const numbers = of(1, 2, 3, 4, 5);
+      const filtered = numbers.pipe(
+        map(num => num * 2),
+        filter(num => num < 8),
+        takeUntil(this.stop$)
+      );
+
+      filtered.subscribe(num => this.mappedValues.push(num));
+    } else {
+      this.mappedValues = [];
+    }
   }
 }
