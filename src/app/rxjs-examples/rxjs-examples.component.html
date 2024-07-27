@@ -59,3 +59,13 @@
         </ul>
     </figure>
 </div>
+<button (click)="expandMappedFilter()">See Map Filter Example</button>
+<div *ngIf="showMapFilter">
+    <p>The map and filter functions are used in this example. Map applies a project function to each emitted value and the filter emits items that satisfy a given condition. For more information see the <a href="https://rxjs.dev/api/index/function/map" target="_blank">Map</a> and the <a href="https://rxjs.dev/api/index/function/filter" target="_blank">Filter</a> documentation.</p>
+    <figure>
+        <figcaption>Mapped and Filtered Values</figcaption>
+        <ul>
+            <li *ngFor="let number of mappedValues">{{number}}</li>
+        </ul>
+    </figure>
+</div>
