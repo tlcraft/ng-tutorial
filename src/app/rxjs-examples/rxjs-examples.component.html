@@ -30,3 +30,42 @@
         <li *ngFor="let number of concatNumbers">{{number}}</li>
     </ul>
 </div>
+<button (click)="expandGenerate()">See Generate Example</button>
+<div *ngIf="showGenerate">
+    <p>The generate operator will create an observable using a state-driven loop and a scheduler to send the messages. For more information see the <a href="https://rxjs.dev/api/index/function/generate" target="_blank">Generate documentation</a>. Generate is an older, deprecated function.</p>
+    <ul>
+        <li *ngFor="let number of generatedNumbers">{{number}}</li>
+    </ul>
+</div>
+<button (click)="expandDebounce()">See Debounce Time Example</button>
+<div *ngIf="showDebounce">
+    <p>The debounceTime operation will emit a notification after a timeframe has passed with no other events. For more information see the <a href="https://rxjs.dev/api/index/function/debounceTime" target="_blank">DebounceTime documentation</a>.</p>
+    <input type="text" [formControl]="debounceControl" />
+    <p>{{debounceValue}}</p>
+</div>
+<button (click)="expandTap()">See Tap Example</button>
+<div *ngIf="showTap">
+    <p>The tap operator is designed to be used with side-effects. For more information see the <a href="https://rxjs.dev/api/index/function/tap" target="_blank">Tap documentation</a>.</p>
+    <figure>
+        <figcaption>Tapped Values</figcaption>
+        <ul>
+            <li *ngFor="let number of tappedValues">{{number}}</li>
+        </ul>
+    </figure>
+    <figure>
+        <figcaption>Source Values</figcaption>
+        <ul>
+            <li *ngFor="let number of sourceValues">{{number}}</li>
+        </ul>
+    </figure>
+</div>
+<button (click)="expandMappedFilter()">See Map Filter Example</button>
+<div *ngIf="showMapFilter">
+    <p>The map and filter functions are used in this example. Map applies a project function to each emitted value and the filter emits items that satisfy a given condition. For more information see the <a href="https://rxjs.dev/api/index/function/map" target="_blank">Map</a> and the <a href="https://rxjs.dev/api/index/function/filter" target="_blank">Filter</a> documentation.</p>
+    <figure>
+        <figcaption>Mapped and Filtered Values</figcaption>
+        <ul>
+            <li *ngFor="let number of mappedValues">{{number}}</li>
+        </ul>
+    </figure>
+</div>
