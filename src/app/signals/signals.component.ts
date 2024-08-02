@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, WritableSignal, signal } from '@angular/core';
 
 @Component({
   selector: 'app-signals',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './signals.component.scss'
 })
 export class SignalsComponent implements OnInit {
+  count: WritableSignal<number>;
+
   ngOnInit() {
-    
+    this.count = signal(0);
+  }
+
+  increment() {
+    this.count.update(value => value++);
   }
 }
