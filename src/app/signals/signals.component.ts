@@ -1,4 +1,4 @@
-import { Component, OnInit, WritableSignal, signal } from '@angular/core';
+import { Component, OnInit, Signal, WritableSignal, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-signals',
@@ -8,6 +8,7 @@ import { Component, OnInit, WritableSignal, signal } from '@angular/core';
 })
 export class SignalsComponent implements OnInit {
   count: WritableSignal<number>;
+  doubleCount: Signal<number>;
 
   ngOnInit() {
     this.count = signal(0);
@@ -15,5 +16,6 @@ export class SignalsComponent implements OnInit {
 
   increment() {
     this.count.update(value => ++value);
+    this.doubleCount = computed(() => this.count() * 2);
   }
 }
