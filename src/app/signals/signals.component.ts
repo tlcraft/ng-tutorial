@@ -14,6 +14,6 @@ export class SignalsComponent implements OnInit {
   }
 
   increment() {
-    this.count.update(value => value++);
+    this.count.update(value => ++value);
   }
 }
