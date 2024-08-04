@@ -8,14 +8,13 @@ import { Component, OnInit, Signal, WritableSignal, computed, signal } from '@an
 })
 export class SignalsComponent implements OnInit {
   count: WritableSignal<number>;
-  doubleCount: Signal<number>;
+  doubleCount: Signal<number> = computed(() => this.count() * 2);
 
   ngOnInit() {
-    this.count = signal(0);
+    this.count = signal<number>(0);
   }
 
   increment() {
     this.count.update(value => ++value);
-    this.doubleCount = computed(() => this.count() * 2);
   }
 }
