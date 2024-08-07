@@ -11,8 +11,10 @@ export class SignalsComponent implements OnInit {
   doubleCount: Signal<number> = computed(() => this.count() * 2);
 
   constructor() {
-    effect(() => {
+    effect((onCleanup) => {
       console.log(`The current count is: ${this.count()}`);
+
+      onCleanup(() => console.log("Effect was cleaned up."));
     });
   }
 
