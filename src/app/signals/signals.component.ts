@@ -1,4 +1,4 @@
-import { Component, OnInit, Signal, WritableSignal, computed, effect, signal } from '@angular/core';
+import { Component, OnInit, Signal, WritableSignal, computed, effect, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-signals',
@@ -7,6 +7,9 @@ import { Component, OnInit, Signal, WritableSignal, computed, effect, signal } f
   styleUrl: './signals.component.scss'
 })
 export class SignalsComponent implements OnInit {
+  firstName = input();
+  lastName = input();
+
   count: WritableSignal<number>;
   doubleCount: Signal<number> = computed(() => this.count() * 2);
 
