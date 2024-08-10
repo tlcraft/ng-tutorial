@@ -7,8 +7,8 @@ import { Component, OnInit, Signal, WritableSignal, computed, effect, input, sig
   styleUrl: './signals.component.scss'
 })
 export class SignalsComponent implements OnInit {
-  firstName = input();
-  lastName = input();
+  firstName = input.required();
+  lastName = input.required();
 
   count: WritableSignal<number>;
   doubleCount: Signal<number> = computed(() => this.count() * 2);
