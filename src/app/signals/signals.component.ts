@@ -12,6 +12,7 @@ export class SignalsComponent implements OnInit {
 
   count: WritableSignal<number>;
   doubleCount: Signal<number> = computed(() => this.count() * 2);
+  fullName: Signal<string> = computed(() => `${this.firstName()} ${this.lastName()}`)
 
   constructor() {
     effect((onCleanup) => {
