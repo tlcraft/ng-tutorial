@@ -1,4 +1,5 @@
-import { Component, OnInit, Signal, WritableSignal, computed, effect, input, signal } from '@angular/core';
+import { Component, OnInit, Signal, WritableSignal, computed, effect, inject, input, signal } from '@angular/core';
+import { Logger } from '../../services/log.service';
 
 @Component({
   selector: 'app-signals',
@@ -14,6 +15,8 @@ export class SignalsComponent implements OnInit {
   doubleCount: Signal<number> = computed(() => this.count() * 2);
   fullName: Signal<string> = computed(() => `${this.firstName()} ${this.lastName()}`)
 
+  logger = inject(Logger);
+
   constructor() {
     effect((onCleanup) => {
       console.log(`The current count is: ${this.count()}`);
@@ -24,6 +27,7 @@ export class SignalsComponent implements OnInit {
 
   ngOnInit() {
     this.count = signal<number>(0);
+    this.logger.log('Loading the Signals page.');
   }
 
   increment() {
