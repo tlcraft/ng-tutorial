@@ -11,7 +11,7 @@ import { Logger } from '../../services/log.service';
 export class HomeComponent implements OnInit {
   title = 'ng-tutorial';
 
-  private logger = inject(Logger);
+  readonly logger = inject(Logger);
 
   ngOnInit() {
     this.logger.log("Loading the home page.");
