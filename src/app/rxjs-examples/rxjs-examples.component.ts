@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Subject, combineLatestWith, concatMap, debounceTime, filter, fromEvent, generate, interval, map, of, take, takeUntil, tap, throwError, timeout } from 'rxjs';
+import { Logger } from '../../services/log.service';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -38,6 +39,12 @@ export class RxjsExamplesComponent {
 
   showMapFilter = false;
   mappedValues: number[] = [];
+
+  readonly logger = inject(Logger);
+
+  ngOnInit() {
+    this.logger.log('Loading the RxJS page.');
+  }
 
   expandInterval() {
     this.showInterval = !this.showInterval;
