@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Logger } from '../../services/log.service';
+import { ModeService } from '../../services/mode-service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,13 @@ export class HomeComponent implements OnInit {
   title = 'ng-tutorial';
 
   readonly logger = inject(Logger);
+  readonly modeService = inject(ModeService);
 
   ngOnInit() {
     this.logger.log("Loading the home page.");
+  }
+
+  toggleMode() {
+    this.modeService.setMode(!this.modeService.getMode());
   }
 }
