@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Subject, combineLatestWith, concatMap, debounceTime, filter, fromEvent, generate, interval, map, of, take, takeUntil, tap, throwError, timeout } from 'rxjs';
 import { Logger } from '../../services/log.service';
+import { ModeService } from '../../services/mode-service';
 
 @Component({
   selector: 'app-rxjs-examples',
@@ -41,9 +42,11 @@ export class RxjsExamplesComponent {
   mappedValues: number[] = [];
 
   readonly logger = inject(Logger);
+  readonly modeService = inject(ModeService);
 
   ngOnInit() {
     this.logger.log('Loading the RxJS page.');
+    this.logger.log('Mode: ', this.modeService.getMode());
   }
 
   expandInterval() {
