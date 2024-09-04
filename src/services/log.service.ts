@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable({  providedIn: 'root' })
 export class Logger {
     log(msg: unknown, data?: unknown) { 
-        if (data) {
+        if (data !== 'undefined') {
             console.log(msg, data);
         } else {
             console.log(msg);
