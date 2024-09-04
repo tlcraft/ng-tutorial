@@ -17,9 +17,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.logger.log("Loading the home page.");
+    this.logger.log('Initial mode: ', this.modeService.getMode());
   }
 
   toggleMode() {
     this.modeService.setMode(!this.modeService.getMode());
+    this.logger.log('Mode: ', this.modeService.getMode());
   }
 }
