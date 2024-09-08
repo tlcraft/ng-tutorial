@@ -11,4 +11,8 @@ export class ModeService {
     setMode(mode: boolean): void {
         this.mode = mode;
     }
+
+    toggle(): void {
+        this.mode = !this.mode;
+    }
 }
