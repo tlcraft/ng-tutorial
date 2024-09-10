@@ -39,7 +39,7 @@ export class TodoListComponent implements OnInit {
   }
 
   toggleMode() {
-    this.modeService.setMode(!this.modeService.getMode());
+    this.modeService.toggle();
     this.logger.log('Mode: ', this.modeService.getMode());
   }
 }
