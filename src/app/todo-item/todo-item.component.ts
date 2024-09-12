@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Logger } from '../../services/log.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -17,7 +18,10 @@ export class TodoItemComponent implements OnInit {
   inEditMode: boolean;
   editedItem = new FormControl();
 
+  readonly logger = inject(Logger);
+
   ngOnInit() {
+    this.logger.log('Loading a Todo item.');
     this.editedItem = new FormControl(this.item.name);
   }
   

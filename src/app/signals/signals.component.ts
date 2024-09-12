@@ -1,4 +1,5 @@
-import { Component, OnInit, Signal, WritableSignal, computed, effect, input, signal } from '@angular/core';
+import { Component, OnInit, Signal, WritableSignal, computed, effect, inject, input, signal } from '@angular/core';
+import { Logger } from '../../services/log.service';
 
 @Component({
   selector: 'app-signals',
@@ -11,8 +12,11 @@ export class SignalsComponent implements OnInit {
   lastName = input.required();
 
   count: WritableSignal<number>;
+  anotherCount: WritableSignal<number>;
   doubleCount: Signal<number> = computed(() => this.count() * 2);
-  fullName: Signal<string> = computed(() => `${this.firstName()} ${this.lastName()}`)
+  fullName: Signal<string> = computed(() => `${this.firstName()} ${this.lastName()}`);
+
+  logger = inject(Logger);
 
   constructor() {
     effect((onCleanup) => {
@@ -20,13 +24,29 @@ export class SignalsComponent implements OnInit {
 
       onCleanup(() => console.log("Effect was cleaned up."));
     });
+
+     effect(() => {
+      console.log(`The current other count is: ${this.anotherCount()}`);
+    });
   }
 
   ngOnInit() {
     this.count = signal<number>(0);
+    this.anotherCount = signal<number>(0);
+    this.logger.log('Loading the Signals page.');
   }
 
   increment() {
-    this.count.update(value => ++value);
+    this.count.update(this.add);
   }
+
+  incrementAnotherCount() {
+    this.anotherCount.update(this.add);
+    console.log('Another count: ', this.anotherCount());
+  }
+
+  add(value: number): number {
+    return ++value;
+  }
+
 }
