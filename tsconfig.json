@@ -23,7 +23,8 @@
       "ES2022",
       "dom"
     ],
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "types": ["vitest/globals", "node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -31,5 +32,6 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
+  "files": ["src/test-setup.ts"],
   "include": ["src/**/*"]
 }
