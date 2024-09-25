@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, beforeAll, beforeEach, it } from 'vitest';
 import { TodoItemComponent } from './todo-item.component';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from "@angular/platform-browser-dynamic/testing";
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
@@ -9,6 +10,10 @@ describe('TodoItemComponent', () => {
     id: "1234abc",
     name: "item"
   };
+
+  beforeAll(() => {
+    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -30,7 +35,7 @@ describe('TodoItemComponent', () => {
   });
 
   it('should emit removed', () => {
-    spyOn(component.removeEmitter, 'emit');
+    vi.spyOn(component.removeEmitter, 'emit');
     component.removeItem();
     expect(component.removeEmitter.emit).toHaveBeenCalled();
   });
@@ -38,22 +43,22 @@ describe('TodoItemComponent', () => {
   it('should enable edit', () => {
     expect(component.inEditMode).toBeUndefined();
     component.editItem();
-    expect(component.inEditMode).toBeTrue();
+    expect(component.inEditMode).toBeTruthy();
   });
 
   it('should save the item', () => {
-    spyOn(component.editEmitter, 'emit');
+    vi.spyOn(component.editEmitter, 'emit');
     expect(component.inEditMode).toBeUndefined();
     expect(component.editedItem.value).toBe('item');
     
     component.editItem();
-    expect(component.inEditMode).toBeTrue();
+    expect(component.inEditMode).toBeTruthy();
 
     component.editedItem.setValue('edited item');
     component.saveItem();
 
     expect(component.editedItem.value).toBe('edited item');
-    expect(component.inEditMode).toBeFalse();
+    expect(component.inEditMode).toBeFalsy();
     expect(component.editEmitter.emit).toHaveBeenCalled();
   });
 });
