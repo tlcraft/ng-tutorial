@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, beforeAll, beforeEach, it } from 'vitest';
+import { describe, beforeEach, it } from 'vitest';
 import { TodoItemComponent } from './todo-item.component';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from "@angular/platform-browser-dynamic/testing";
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
@@ -10,10 +9,6 @@ describe('TodoItemComponent', () => {
     id: "1234abc",
     name: "item"
   };
-
-  beforeAll(() => {
-    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

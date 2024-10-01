@@ -1,15 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, beforeAll, beforeEach, it } from 'vitest';
+import { describe, beforeEach, it } from 'vitest';
 import { TodoListComponent } from './todo-list.component';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
   let fixture: ComponentFixture<TodoListComponent>;
-
-  beforeAll(() => {
-    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

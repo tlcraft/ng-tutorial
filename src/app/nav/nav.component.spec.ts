@@ -2,16 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavComponent } from './nav.component';
 import { ActivatedRoute } from '@angular/router';
-import { describe, beforeAll, beforeEach, it } from 'vitest';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import { describe, beforeEach, it } from 'vitest';
 
 describe('NavComponent', () => {
   let component: NavComponent;
   let fixture: ComponentFixture<NavComponent>;
-
-  beforeAll(() => {
-    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-  });
 
   beforeEach(async () => {
     const mockActivedRoute = {};
