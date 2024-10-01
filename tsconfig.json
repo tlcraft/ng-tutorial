@@ -33,5 +33,5 @@
     "strictTemplates": true
   },
   "files": ["src/test-setup.ts"],
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "vite.config.mts"]
 }
