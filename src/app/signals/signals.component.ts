@@ -8,8 +8,8 @@ import { Logger } from '../../services/log.service';
   styleUrl: './signals.component.scss'
 })
 export class SignalsComponent implements OnInit {
-  firstName = input.required();
-  lastName = input.required();
+  firstName = input.required<string>();
+  lastName = input.required<string>();
 
   count: WritableSignal<number>;
   anotherCount: WritableSignal<number>;
