@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavComponent } from './nav.component';
 import { ActivatedRoute } from '@angular/router';
+import { describe, beforeEach, it } from 'vitest';
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -9,7 +10,6 @@ describe('NavComponent', () => {
 
   beforeEach(async () => {
     const mockActivedRoute = {};
-
     await TestBed.configureTestingModule({
       imports: [NavComponent],
       providers: [{provide: ActivatedRoute, useValue: mockActivedRoute }]

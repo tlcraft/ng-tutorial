@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "vitest": "vitest",
     "lint": "npx eslint",
     "lint-log": "npx eslint > lint-log.txt",
     "lint-fix": "npx eslint --fix"
@@ -27,6 +28,7 @@
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
+    "@analogjs/vitest-angular": "^1.8.1",
     "@angular-devkit/build-angular": "^18.2.4",
     "@angular/cli": "^18.2.4",
     "@angular/compiler-cli": "^18.2.4",
@@ -36,6 +38,7 @@
     "eslint": "^9.5.0",
     "globals": "^15.6.0",
     "jasmine-core": "~5.1.0",
+    "jsdom": "^25.0.1",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",

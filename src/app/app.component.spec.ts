@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ActivatedRoute } from '@angular/router';
+import { describe, beforeEach, it } from 'vitest';
 
 describe('AppComponent', () => {
   const mockActivedRoute = {};

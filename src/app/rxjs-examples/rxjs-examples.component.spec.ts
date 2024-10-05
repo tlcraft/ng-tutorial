@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, beforeEach, it } from 'vitest';
 import { RxjsExamplesComponent } from './rxjs-examples.component';
 
 describe('RxjsExamplesComponent', () => {
