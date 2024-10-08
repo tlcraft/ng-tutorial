@@ -28,6 +28,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [Eslint/Tslint Config help (excluding files)](https://stackoverflow.com/a/61219638)
 - [Node Modules at War: Why CommonJS and ES Modules Can’t Get Along](https://redfin.engineering/node-modules-at-war-why-commonjs-and-es-modules-cant-get-along-9617135eeca1)
 
+### Lefthook
+
+- [Lefthook GitHub](https://github.com/evilmartians/lefthook)
+- [Lefthook Configuration](https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
