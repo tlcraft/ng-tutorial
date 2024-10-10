@@ -5,5 +5,5 @@ pre-commit:
       glob: "*.{js,ts,jsx,tsx}"
       run: npm run lint {staged_files}
     vitest:
-      glob: "*.spec.{js,ts}"
+      glob: "*.spec.{js,ts,jsx,tsx}"
       run: npm run test {staged_files}
