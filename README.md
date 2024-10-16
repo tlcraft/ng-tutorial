@@ -33,6 +33,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [Lefthook GitHub](https://github.com/evilmartians/lefthook)
 - [Lefthook Configuration](https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md)
 
+### Storybook
+
+- [Storybook for Angular tutorial](https://storybook.js.org/tutorials/intro-to-storybook/angular/en/get-started/)
+- [How to add Storybook and Chromatic to your Angular monorepo](https://catalincodes.com/posts/how-to-add-storybook-to-angular)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
