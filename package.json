@@ -12,7 +12,8 @@
     "lint-log": "npx eslint > lint-log.txt",
     "lint-fix": "npx eslint --fix",
     "storybook": "ng run ng-tutorial:storybook",
-    "build-storybook": "ng run ng-tutorial:build-storybook"
+    "build-storybook": "ng run ng-tutorial:build-storybook",
+    "docs:json": "compodoc -p .storybook/tsconfig.json -e json -d ."
   },
   "private": true,
   "dependencies": {
