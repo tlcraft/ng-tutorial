@@ -42,3 +42,5 @@ testem.log
 Thumbs.db
 
 lint-log.txt
+
+*storybook.log

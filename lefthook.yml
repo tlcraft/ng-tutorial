@@ -2,6 +2,7 @@ pre-commit:
   parallel: true
   commands:
     eslint:
+      exclude: "documentation"
       glob: "*.{js,ts,jsx,tsx}"
       run: npm run lint {staged_files}
     vitest:
